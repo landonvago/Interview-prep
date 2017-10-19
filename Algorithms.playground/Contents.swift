@@ -27,6 +27,8 @@ func insertionSort(arr: [Int]) -> [Int] {
 
 insertionSort(arr: custom)
 
+
+
 func insertionSort2(_ array: [[String: String]]) -> [[String: String]] {
     var a = array
     var updateid = 0
@@ -59,6 +61,15 @@ func insertionSort2(_ array: [[String: String]]) -> [[String: String]] {
         }
     }
     return a
+}
+
+func takeIndex(index: Int, offsetBy: Int) -> [Int] {
+    let kee = a[y].keys.first!
+    let kee2 = a[y-1].keys.first!
+    let index1 = kee.index(kee.startIndex, offsetBy: 4)
+    let index2 = kee2.index(kee2.startIndex, offsetBy: 4)
+    updateid = Int(kee.substring(from: index1))!
+    updateIdinit = Int(kee2.substring(from: index2))!
 }
 
 
