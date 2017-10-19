@@ -181,13 +181,16 @@ for i in range(len(a)-1):
     m = a.pop(0)
     a.insert(5, m)
     # print(a)
-
+r = [1,5,4,3,2]
 
 def leftrotation(r, l):
     for i in range(l+1):
         m = r.pop(0)
         r.insert(len(r), m)
     print(r)
+
+y = leftrotation(r, 5)
+print y
 
 # leftrotation(a, 4)
 
@@ -306,14 +309,70 @@ def howmany(n):
                     c = 0
                 j += 1
             k[i] = l
-            print(k)
+            # print(k)
 # for i in range(len(a)):
 
-howmany(j)
+# howmany(j)
+
+# S = [1, 0, -1, 0, -2, 2]
+# moo = 0
+
+s = "abaa"
+t = "baab"
+p = t.count(s[1])
+# print(p)
+def anagram(s, t):
+    state = False
+    if len(s) is not len(t):
+        return False
+
+    for i in range(len(s)):
+        if s.count(s[i]) - t.count(s[i]) == 0:
+            state = True
+        else:
+            return False
+    return state
+
+h = anagram(s, t)
+print(h)
+
+def reverseString():
+    s = "hello world"
+    n = ""
+    m = s.split(" ")[::-1]
+    for i in m:
+        n += i + " "
+    print(n)
+
+u = "hello world"
+
+def stackreverse(u):
+    stk = []
+    new = ""
+    word = u.split(" ")
+    for i in word:
+        stk.append(i)
+    print(stk)
+    for i in range(len(stk)):
+        new += stk.pop() + " "
+    print(new.strip())
+
+stackreverse(u)
 
 
-S = [1, 0, -1, 0, -2, 2]
-moo = 0
+non = [1,2,3,4,5,5,6,7,8,9]
+def duplicate(o):
+    for i in range(len(non)-1):
+        if non[i] == non[i+1]:
+            return non[i]
+    return "no duplicate"
 
-def quad(roo, moo):
-    
+po = duplicate(non)
+print(po)
+
+
+
+
+
+
+
