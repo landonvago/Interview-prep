@@ -76,16 +76,15 @@ class Node:
         self.left = None
         self.right = None
         self.value = value
-        self.visited = None
 
     def insert(self, value):
         if value > self.value and self.right == None:
             self.right = Node(value)
-        if value > self.value and self.right != None:
+        if value > self.value and self.right is not None:
             self.right.insert(value)
         if value < self.value and self.left == None:
             self.left = Node(value)
-        if value < self.value and self.left != None:
+        if value < self.value and self.left is not None:
             self.left.insert(value)
 
 class Tree:
@@ -239,7 +238,7 @@ def stkmaxspna(arr):
     i = 1
     while i < size:
         while len(stk) != 0 and arr[stk[len(stk)-1]] <= arr[i]:
-            print("{0} <= {1}".format(arr[stk[len(stk)-1]], arr[i]))
+            # print("{0} <= {1}".format(arr[stk[len(stk)-1]], arr[i]))
             stk.pop()
         if (len(stk) == 0):
             n[i] += 1
@@ -249,23 +248,38 @@ def stkmaxspna(arr):
         i += 1
     return n
 
-n = stkmaxspna(r)
+# n = stkmaxspna(r)
 
 # print(n)
 # -------------------------------------------- #
 
 
-def maxspan(arr):
-    n = [0]*len(arr)
-    n[0] = 0
-    i = 1
-    s = len(arr)
+def maxspan(you):
+    h = [0]*len(you)
+    h[0] = 0
+    i = 0
+    s = len(you)
     while i < s:
-        n[i] = 0
+        h[i] = 1
         j = i - 1
-        while j >= 0 and arr[i] > arr[j]:
-            n[i] += 1
+        while j >= 0 and you[i] > you[j]:
+            h[i] += 1
             j -= 1
         i += 1
-    return n
-# print(n)
+    return h
+
+k = maxspan(r)
+print(k)
+
+a = "abcaba"
+
+def palindrome(str):
+    for i in range(len(str)):
+        t = str[:i] + str[i+1:] # we basically want to grab only len -1 elements so one element will always be missing.
+        print(t)
+        if t == t[::-1]: # this is how to reverse an array
+            return True
+    return False
+
+l = palindrome(a)
+print(l)
