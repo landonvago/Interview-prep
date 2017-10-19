@@ -269,17 +269,51 @@ def maxspan(you):
     return h
 
 k = maxspan(r)
-print(k)
+# print(k)
 
-a = "abcaba"
-
+a = "aaaaba"
+# print(len(a))
 def palindrome(str):
     for i in range(len(str)):
         t = str[:i] + str[i+1:] # we basically want to grab only len -1 elements so one element will always be missing.
-        print(t)
+        # print(t)
         if t == t[::-1]: # this is how to reverse an array
             return True
     return False
 
 l = palindrome(a)
-print(l)
+# print(l)
+
+j = 4
+
+def howmany(n):
+    if n == 1:
+        return 1
+    else:
+        k = ["0"]*n
+        k[0] = "1"
+        l = ""
+        for i in range(len(k)-1):
+            j = 0
+            c = 1
+            while j <= len(k[i]):
+                if len(k[i]) == 0:
+                    k[i] += "11"
+                elif k[i][i-1] == k[i][j-1]:
+                    c += 1
+                else:
+                    l += str(c) + str(j-1)
+                    c = 0
+                j += 1
+            k[i] = l
+            print(k)
+# for i in range(len(a)):
+
+howmany(j)
+
+
+S = [1, 0, -1, 0, -2, 2]
+moo = 0
+
+def quad(roo, moo):
+    
