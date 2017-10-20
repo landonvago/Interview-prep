@@ -196,8 +196,8 @@ print y
 
 # --------------- Stacks --------------------- #
 
-expn = "{((})]]"
-ano = "{()({})}"
+# expn = "{((})]]"
+# ano = "{()({})}"
 
 def isbalanced(inp):
     l = []
@@ -368,11 +368,68 @@ def duplicate(o):
     return "no duplicate"
 
 po = duplicate(non)
-print(po)
+# print(po)
 
 
 
+max = [10,7,4,3,2,5,8,11]
+
+def maxprofits(max):
+    new = []
+    for i in range(len(max)):
+        count = 0
+        j = i
+        while max[i] > max[j-1]:
+            j -= 1
+            count += 1
+        new.append(count)
+    # print(new)
+
+maxprofits(max)
+
+
+expn = "{((})]]"
+ano = "{(({}))}"
+
+
+class Stack:
+
+    def __init__(self, items):
+        self.items = []
+
+    def popLast(self, items):
+        return self.items.pop()
+
+    def pushLast(self, items, value):
+        return self.items.append(value)
+
+    def length(selfs, items):
+        return len(items)
 
 
 
+class Node2:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
 
+    def insert(self, num):
+        if num < self.value and self.left is not None:
+            self.left.insert(num)
+        if num > self.value and self.right is not None:
+            self.right.insert(num)
+        if num < self.value and self.right is None:
+            self.
+
+
+
+class Tree2:
+
+    def __init__(self, inputt):
+        if len(inputt) == 0:
+            return
+        else:
+            self.parent = Node(inputt[0])
+            for i in input[0:]:
+                self.parent.insert(i)
