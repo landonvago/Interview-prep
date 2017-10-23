@@ -383,7 +383,7 @@ def maxprofits(max):
             j -= 1
             count += 1
         new.append(count)
-    # print(new)
+    print(new)
 
 maxprofits(max)
 
@@ -406,8 +406,6 @@ class Stack:
     def length(selfs, items):
         return len(items)
 
-
-
 class Node2:
     def __init__(self, value):
         self.value = value
@@ -419,10 +417,10 @@ class Node2:
             self.left.insert(num)
         if num > self.value and self.right is not None:
             self.right.insert(num)
-        if num < self.value and self.right is None:
-            self.
-
-
+        if num < self.value and self.left is None:
+            self.left = Node(num)
+        if num > self.value and self.right is None:
+            self.right = Node(num)
 
 class Tree2:
 
@@ -431,5 +429,93 @@ class Tree2:
             return
         else:
             self.parent = Node(inputt[0])
-            for i in input[0:]:
+            for i in inputt[0:]:
                 self.parent.insert(i)
+
+    def maxintree(self):
+        if self.parent == None:
+            return "no parent"
+        else:
+            return self.getMax(self.parent)
+
+    def getMax(self, node):
+        if node.right == None:
+            return node.value
+        else:
+            return self.getMax(node.right)
+
+    def DFS(self, g, v):
+        g.append(v)
+        if v.left is not None:
+            if v.left not in g:
+                self.DFS(g, v.left)
+        if v.right is not None:
+            if v.right not in g:
+                self.DFS(g, v.right)
+
+tre2 = Tree2([1,3,5,2,9])
+print(tre2.getMax(tre2.parent))
+
+maxy = [8,7,4,3,2,1]
+
+def maxreturn(m):
+    min = m[0]
+    max = m[0]
+    for i in range(len(maxy)-1):
+        if maxy[i+1] < maxy[i]:
+            if maxy[i+1] < min:
+                min = maxy[i + 1]
+        else:
+            max = maxy[i+1]
+    return max - min
+
+y = maxreturn(maxy)
+print(y)
+
+
+ex = [1,2,2,3,3,3,2,4]
+r = [1,2,2,2,4]
+# ex[-5:-2] = []
+r[-4:-1] = []
+# print(ex, r)
+
+def connectthree(new):
+    arr = new
+    print(arr)
+    c = 0
+    for i in range(len(arr)-1):
+        if arr[i] == arr[i+1]:
+            c += 1
+            if c == 2:
+                print(-i-1, -i+2, i, i+1)
+                arr[-i-1:-i+2] = []
+                connectthree(arr)
+                return
+        else:
+            c = 0
+    return arr
+#
+# l = connectthree(ex)
+# print(l)
+
+
+upto = 30
+def fib(upto):
+    arr = [1]
+    total = arr[0]
+    def recur(arr, total):
+        print(arr)
+        if len(arr) == upto:
+            return arr
+        else:
+            arr.append(total)
+            h = arr[len(arr)-1] + arr[len(arr)-2]
+            recur(arr, h)
+        return arr
+
+    po = recur(arr, total)
+    return po
+
+po = fib(upto)
+print(po)
+
